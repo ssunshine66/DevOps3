@@ -1,0 +1,13 @@
+Source: secfunc
+Section: utils
+Priority: optional
+Maintainer: Vlad <vkornienko63@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: secfunc
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Program to compute sec(x) using Euler numbers
+ This package provides a command line tool to compute sec(x)
+ using Taylor series with Euler numbers.
