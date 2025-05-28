@@ -171,7 +171,8 @@ am__define_uniq_tagged_files = \
     if test -f "$$i"; then echo $$i; else echo $(srcdir)/$$i; fi; \
   done | $(am__uniquify_input)`
 AM_RECURSIVE_TARGETS = cscope
-am__DIST_COMMON = $(srcdir)/Makefile.in depcomp install-sh missing
+am__DIST_COMMON = $(srcdir)/Makefile.in README.md depcomp install-sh \
+	missing
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 distdir = $(PACKAGE)-$(VERSION)
 top_distdir = $(distdir)
@@ -280,6 +281,7 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 secfunc_SOURCES = main.cpp func.cpp func.h
+EXTRA_DIST = missing
 all: all-am
 
 .SUFFIXES:
