@@ -1,4 +1,4 @@
-name: Create tarball distribution
+name: Run unit tests and create tarball
 
 on:
   push:
@@ -9,25 +9,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install build dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y build-essential autoconf automake make g++
+      - name: Install build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential autoconf automake make g++
 
-    - name: Generate config scripts
-      run: |
-        aclocal
-        autoconf
-        automake --add-missing
+      - name: Generate config scripts
+        run: |
+          aclocal
+          autoconf
+          automake --add-missing
 
-    - name: Build and configure
-      run: |
-        ./configure
-        make
-        make check
+      - name: Configure and build
+        run: |
+          ./configure
+          make
 
-    - name: Create tarball distribution
-      run: make dist
+      - name: Run unit tests
+        run: make check
+
+      - name: Create tarball distribution
+        run: make dist
+        
