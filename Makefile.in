@@ -281,6 +281,7 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 secfunc_SOURCES = main.cpp func.cpp func.h
+EXTRA_DIST = missing
 all: all-am
 
 .SUFFIXES:
