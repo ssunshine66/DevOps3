@@ -1,34 +1,36 @@
-name: deb action
+name: Build .deb package
 
 on:
   push:
-    branches: ["branchAutoPackage"]
+    branches: [ branchAutoPackage ]
   pull_request:
-    branches: ["branchAutoPackage"]
+    branches: [ branchAutoPackage ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install build dependencies
+      - name: Install packaging tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y build-essential autoconf automake make g++ dpkg-dev pkg-config
+          sudo apt-get install -y build-essential debhelper devscripts autoconf automake
 
-      - name: Generate config scripts
+      - name: Generate autotools scripts
         run: |
           aclocal
           autoconf
           automake --add-missing
 
-      - name: Build and configure
+      - name: Configure and build
         run: |
           ./configure
           make
 
-      - name: Build deb package
-        run: dpkg-buildpackage -us -uc
-        
+      - name: Build debian package
+        run: |
+          dpkg-buildpackage -us -uc
+          
