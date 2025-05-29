@@ -496,7 +496,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-httpserver_SOURCES = main.cpp func.cpp func.h
+httpserver_SOURCES = main.cpp func.cpp func.h httplib.h
 testTrig_SOURCES = test.cpp func.cpp func.h
 EXTRA_DIST = missing
 all: all-am

@@ -167,6 +167,7 @@ on ubuntudebops
 config.status:777: creating Makefile
 config.status:949: executing depfiles commands
 config.status:1026: cd .       && sed -e '/# am--include-marker/d' Makefile         | make -f - am--depfiles
+make: Nothing to be done for 'am--depfiles'.
 config.status:1031: $? = 0
 configure:5312: checking for gcc
 configure:5333: found /usr/bin/gcc
