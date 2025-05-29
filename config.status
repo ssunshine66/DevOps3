@@ -588,6 +588,14 @@ fi
 
 echo 'BEGIN {' >"$ac_tmp/subs1.awk" &&
 cat >>"$ac_tmp/subs1.awk" <<\_ACAWK &&
+S["am__fastdepCC_FALSE"]=""
+S["am__fastdepCC_TRUE"]=""
+S["CCDEPMODE"]=""
+S["ac_ct_CC"]=""
+S["CFLAGS"]=""
+S["CC"]=""
+S["ac_ct_AR"]=""
+S["AR"]=""
 S["am__EXEEXT_FALSE"]=""
 S["am__EXEEXT_TRUE"]="#"
 S["LTLIBOBJS"]=""
