@@ -33,4 +33,10 @@ jobs:
       - name: Build debian package
         run: |
           dpkg-buildpackage -us -uc
-          
+        
+      - name: Upload .deb artifact
+        uses: actions/upload-artifact@v3
+        with:
+            name: debian-package
+            path: ../*.deb
+            
