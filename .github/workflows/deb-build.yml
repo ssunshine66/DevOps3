@@ -34,14 +34,6 @@ jobs:
         run: |
           dpkg-buildpackage -us -uc
       
-      - name: Move .deb package to current directory
-        run: cp ../*.deb .
-        
-      - name: Upload .deb artifact
-        uses: actions/upload-artifact@v4
-        with:
-            name: debian-package
-            path: ../*.deb
-            
+
 
 
