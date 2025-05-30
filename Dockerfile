@@ -1,8 +1,8 @@
-# Базовий образ Ubuntu
 FROM ubuntu:22.04
 
 # Встановлення залежностей
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
     g++ \
     make \
     cmake \
@@ -15,17 +15,10 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
-# Копіюємо весь проєкт у контейнер
 WORKDIR /app
 COPY . .
 
-# Генеруємо файли конфігурації autotools
-RUN autoreconf -i
-
-# Конфігуруємо проєкт
-RUN ./configure
-
-# Компілюємо проєкт
+# Компіляція програми
 RUN make
 
 # Відкриваємо порт
