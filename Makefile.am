@@ -6,4 +6,3 @@ testTrig_SOURCES = test.cpp func.cpp func.h
 
 TESTS = testTrig
 EXTRA_DIST = missing
-
