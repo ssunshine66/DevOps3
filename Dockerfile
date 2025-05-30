@@ -9,13 +9,23 @@ RUN apt-get update && apt-get install -y \
     wget \
     curl \
     libstdc++6 \
+    autoconf \
+    automake \
+    libtool \
+    pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
 # Копіюємо весь проєкт у контейнер
 WORKDIR /app
 COPY . .
 
-# Компіляція програми
+# Генеруємо файли конфігурації autotools
+RUN autoreconf -i
+
+# Конфігуруємо проєкт
+RUN ./configure
+
+# Компілюємо проєкт
 RUN make
 
 # Відкриваємо порт
