@@ -18,11 +18,14 @@ RUN apt-get update && \
 WORKDIR /app
 COPY . .
 
-# Компіляція програми
+# Підготовка до збірки
+RUN ./configure
+
+# Компіляція
 RUN make
 
 # Відкриваємо порт
 EXPOSE 8080
 
-# Запуск сервера
+# Запуск
 CMD ["./httpserver"]
