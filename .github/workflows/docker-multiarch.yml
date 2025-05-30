@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - branchHTTPServer
+      - branchHTTPServMutli
 
 jobs:
   build-and-push:
